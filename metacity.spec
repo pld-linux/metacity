@@ -1,7 +1,7 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.4.3
+Version:	2.4.5
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
@@ -38,6 +38,7 @@ rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
