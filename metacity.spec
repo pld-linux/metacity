@@ -1,7 +1,7 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.4.8
+Version:	2.4.13
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
@@ -11,13 +11,13 @@ Patch1:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	GConf2-devel >= 1.2.0
-BuildRequires:	gtk+2-devel >= 2.1.3
-BuildRequires:	intltool >= 0.22
+BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
-BuildRequires:	rpm-build >= 4.1-8.2
-BuildRequires:	Xft-devel >= 2.0-6
+BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	Xft-devel >= 2.1
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -86,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome/wm-properties/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
-%{_datadir}/control-center-2.0/capplets/*
+#%{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/themes/Atlanta/metacity-1
 %{_datadir}/themes/Bright/metacity-1
 %{_datadir}/themes/Crux/metacity-1
