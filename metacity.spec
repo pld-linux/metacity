@@ -1,50 +1,51 @@
-Summary: Metacity window manager
-Name: metacity
-Version: 2.3.34
-Release: 1
-URL: http://people.redhat.com/~hp/metacity/
-Source0: %{name}-%{version}.tar.gz
-License: GPL
-Group: User Interface/Desktops
-BuildRoot: %{_tmppath}/%{name}-root
-BuildRequires: gtk2-devel >= 1.3.10
+Summary:	Metacity window manager
+Name:		metacity
+Version:	2.3.55
+Release:	1
+License:	GPL
+Group:		X11/Window Managers
+Source0:	http://people.redhat.com/~hp/metacity/%{name}-%{version}.tar.gz
+URL:		http://people.redhat.com/~hp/metacity/
+BuildRequires:	GConf2-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gtk+2-devel >= 1.3.10
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
-
-Metacity is a simple window manager that integrates nicely with 
-GNOME 2.
+Metacity is a simple window manager that integrates nicely with GNOME
+2.
 
 %prep
 %setup -q
 
 %build
+rm -f missing
+aclocal
+autoconf
+automake -a -c -f
 %configure
-make %{?_smp_mflags}
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+gzip -9nf README AUTHORS NEWS
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
-%defattr(-,root,root)
-%doc README AUTHORS COPYING NEWS
-%{_bindir}/metacity
-%{_bindir}/metacity-restart
+%files -f %{name}.lang
+%defattr(644,root,root,755)
+%doc *.gz
+%attr(755,root,root) %{_bindir}/metacity
+%attr(755,root,root) %{_bindir}/metacity-restart
 %{_datadir}/gnome/wm-properties/metacity.desktop
-
-%changelog
-* Tue Oct 30 2001 Havoc Pennington <hp@redhat.com>
-- 2.3.34
-
-* Fri Oct 13 2001 Havoc Pennington <hp@redhat.com>
-- 2.3.21 
-
-* Mon Sep 17 2001 Havoc Pennington <hp@redhat.com>
-- 2.3.8
-- 2.3.13
-
-* Wed Sep  5 2001 Havoc Pennington <hp@redhat.com>
-- Initial build.
