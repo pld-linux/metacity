@@ -9,7 +9,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.8.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
@@ -17,6 +17,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.t
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-swap-resize-button.patch
+Patch3:		%{name}-disable-prevention-focus-stealing-logic.patch
 BuildRequires:	GConf2-devel >= 2.6.1
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -176,6 +177,7 @@ Motyw Simple dla Metacity.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p0
 
 mv po/{no,nb}.po
 
