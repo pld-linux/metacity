@@ -1,11 +1,17 @@
+
+#
 # TODO:
 # - something with %{_datadir}/themes/Theme dirs (some belong to gnome-themes,
 #   some don't belong anywhere...)
+# - metacity requires itself (links with installed libmetacity-private
+#   instead of linking with built one?)
+#
+
 Summary:	Metacity window manager
-Summary(pl):	Zarz±dca okien metacity
+Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.6.3
-Release:	4
+Release:	4.1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
@@ -38,120 +44,131 @@ GNOME2.
 %description -l pl
 Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
 
+%package libs
+Summary:	Metacity - libraries
+Summary(pl):	Metacity - biblioteki
+Group:		X11/Libraries
+
+%description libs
+This package contains libraries for Metacity window manager.
+
+%description libs -l pl
+Pakiet zawieraj±cy biblioteki zarz±dcy okien Metacity.
+
 %package devel
-Summary:	metacity - header files
-Summary(pl):	metacity - pliki nag³ówkowe
+Summary:	Metacity - header files
+Summary(pl):	Metacity - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name}-libs = %{version}
 
 %description devel
-This package contains header files for metcity window manager.
+This package contains header files for Metacity window manager.
 
 %description devel -l pl
-Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien metacity.
+Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien Metacity.
 
 %package static
-Summary:	Static metacity library
-Summary(pl):	Statyczna biblioteka metacity
+Summary:	Static Metacity library
+Summary(pl):	Statyczna biblioteka Metacity
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static version of metacity library.
+Static version of Metacity library.
 
 %description static -l pl
-Statyczna wersja biblioteki metacity.
+Statyczna wersja biblioteki Metacity.
 
 %package themes-AgingGorilla
-Summary:	AgingGorilla theme for metacity
-Summary(pl):	Motyw AgingGorilla dla metacity
+Summary:	AgingGorilla theme for Metacity
+Summary(pl):	Motyw AgingGorilla dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-AgingGorilla
-AgingGorilla theme for metacity.
+AgingGorilla theme for Metacity.
 
 %description themes-AgingGorilla -l pl
-Motyw AgingGorilla dla metacity.
+Motyw AgingGorilla dla Metacity.
 
 %package themes-Atlanta
-Summary:	Atlanta theme for metacity
-Summary(pl):	Motyw Atlanta dla metacity
+Summary:	Atlanta theme for Metacity
+Summary(pl):	Motyw Atlanta dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-Atlanta
-Atlanta theme for metacity.
+Atlanta theme for Metacity.
 
 %description themes-Atlanta -l pl
-Motyw Atlanta dla metacity.
+Motyw Atlanta dla Metacity.
 
 %package themes-Bright
-Summary:	Bright theme for metacity
-Summary(pl):	Motyw Bright dla metacity
+Summary:	Bright theme for Metacity
+Summary(pl):	Motyw Bright dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-Bright
-Bright theme for metacity.
+Bright theme for Metacity.
 
 %description themes-Bright -l pl
-Motyw Bright dla metacity.
+Motyw Bright dla Metacity.
 
 %package themes-Crux
-Summary:	Crux theme for metacity
-Summary(pl):	Motyw Crux dla metacity
+Summary:	Crux theme for Metacity
+Summary(pl):	Motyw Crux dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-Crux
-Crux theme for metacity.
+Crux theme for Metacity.
 
 %description themes-Crux -l pl
-Motyw Crux dla metacity.
+Motyw Crux dla Metacity.
 
 %package themes-Esco
-Summary:	Esco theme for metacity
-Summary(pl):	Motyw Esco dla metacity
+Summary:	Esco theme for Metacity
+Summary(pl):	Motyw Esco dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-Esco
-Esco theme for metacity.
+Esco theme for Metacity.
 
 %description themes-Esco -l pl
-Motyw Esco dla metacity.
+Motyw Esco dla Metacity.
 
 %package themes-Metabox
-Summary:	Metabox theme for metacity
-Summary(pl):	Motyw Metabox dla metacity
+Summary:	Metabox theme for Metacity
+Summary(pl):	Motyw Metabox dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-Metabox
-Metabox theme for metacity.
+Metabox theme for Metacity.
 
 %description themes-Metabox -l pl
-Motyw Metabox dla metacity.
+Motyw Metabox dla Metacity.
 
 %package themes-Simple
-Summary:	Simple theme for metacity
-Summary(pl):	Motyw Simple dla metacity
+Summary:	Simple theme for Metacity
+Summary(pl):	Motyw Simple dla Metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
 Provides:	metacity-theme-base = %{version}
 
 %description themes-Simple
-Simple theme for metacity.
+Simple theme for Metacity.
 
 %description themes-Simple -l pl
-Motyw Simple dla metacity.
+Motyw Simple dla Metacity.
 
 %prep
 %setup -q
@@ -187,16 +204,18 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/ldconfig
 %gconf_schema_install
 
-%postun	-p /sbin/ldconfig
+%post libs
+/sbin/ldconfig
+
+%postun	libs
+/sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README AUTHORS NEWS doc/theme-format.txt
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*.so.*.*.*
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
 %{_datadir}/xsessions/%{name}.desktop
@@ -232,6 +251,10 @@ rm -rf $RPM_BUILD_ROOT
 %files themes-Simple
 %defattr(644,root,root,755)
 %{_datadir}/themes/Simple/*
+
+%files libs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
