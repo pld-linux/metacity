@@ -9,13 +9,14 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.8.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	b311b41446c559056281f205f16d8aca
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-locale-names.patch
+Patch2:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.6.1
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,6 +27,7 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel >= 0.6
+BuildRequires:	fontconfig-devel
 Requires(post):	GConf2 >= 2.6.1
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	metacity-theme-base = %{version}-%{release}
@@ -172,6 +174,7 @@ Motyw Simple dla Metacity.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 mv po/{no,nb}.po
 
@@ -187,7 +190,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/{xml/metacity}
+install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
