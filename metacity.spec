@@ -15,7 +15,6 @@ URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.3.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:  fontconfig-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
@@ -23,7 +22,6 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
-BuildRequires:  xft-devel >= 2.1
 Requires(post):	/sbin/ldconfig
 Requires(post):	GConf2 >= 2.3.0
 Requires:	metacity-theme-base = %{version}
@@ -53,7 +51,7 @@ Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien metacity.
 %package static
 Summary:	Static metacity library
 Summary(pl):	Statyczna biblioteka metacity
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
                                                                                 
 %description static
