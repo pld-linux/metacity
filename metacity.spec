@@ -2,11 +2,11 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.5.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5: 78a9bc7e61bcfeea3b63460c5628d1f3
+# Source0-md5:	78a9bc7e61bcfeea3b63460c5628d1f3
 Patch0:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.3.0
@@ -59,15 +59,11 @@ Static version of metacity library.
 %description static -l pl
 Statyczna wersja biblioteki metacity.
 
-
-# Here go themes:
-
 %package        themes-AgingGorilla
 Summary:        AgingGorilla theme for metacity
 Summary(pl):    Motyw AgingGorilla dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
-
+Requires:       %{name} = %{version}
 
 %description themes-AgingGorilla
 AgingGorilla theme for metacity
@@ -75,12 +71,11 @@ AgingGorilla theme for metacity
 %description themes-AgingGorilla -l pl
 Motyw AgingGorilla dla metacity
 
-
 %package        themes-Atlanta
 Summary:        Atlanta theme for metacity
 Summary(pl):    Motyw Atlanta dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
+Requires:       %{name} = %{version}
 
 %description themes-Atlanta
 Atlanta theme for metacity
@@ -88,12 +83,11 @@ Atlanta theme for metacity
 %description themes-Atlanta -l pl
 Motyw Atlanta dla metacity
 
-
 %package        themes-Bright
 Summary:        Bright theme for metacity
 Summary(pl):    Motyw Bright dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
+Requires:       %{name} = %{version}
 
 %description themes-Bright
 Bright theme for metacity
@@ -101,12 +95,11 @@ Bright theme for metacity
 %description themes-Bright -l pl
 Motyw Bright dla metacity
 
-
 %package        themes-Crux
 Summary:        Crux theme for metacity
 Summary(pl):    Motyw Crux dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
+Requires:       %{name} = %{version}
 
 %description themes-Crux
 Crux theme for metacity
@@ -114,12 +107,11 @@ Crux theme for metacity
 %description themes-Crux -l pl
 Motyw Crux dla metacity
 
-
 %package        themes-Esco
 Summary:        Esco theme for metacity
 Summary(pl):    Motyw Esco dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
+Requires:       %{name} = %{version}
 
 %description themes-Esco
 Esco theme for metacity
@@ -127,12 +119,11 @@ Esco theme for metacity
 %description themes-Esco -l pl
 Motyw Esco dla metacity
 
-
 %package        themes-Metabox
 Summary:        Metabox theme for metacity
 Summary(pl):    Motyw Metabox dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
+Requires:       %{name} = %{version}
 
 %description themes-Metabox
 Metabox theme for metacity
@@ -140,12 +131,11 @@ Metabox theme for metacity
 %description themes-Metabox -l pl
 Motyw Metabox dla metacity
 
-
 %package        themes-Simple
 Summary:        Simple theme for metacity
 Summary(pl):    Motyw Simple dla metacity
 Group:          Themes/Gtk
-Requires:       %{name} >= %{version}
+Requires:       %{name} = %{version}
 
 %description themes-Simple
 Simple theme for metacity
@@ -169,21 +159,14 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	desktopfilesdir=%{_wmpropsdir} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-#install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
-install -d $RPM_BUILD_ROOT%{_datadir}/themes/%{name}
-for i in `ls -1 $RPM_BUILD_ROOT%{_datadir}/themes/|grep -v metacity`
-do
-	install -d $RPM_BUILD_ROOT%{_datadir}/themes/%{name}/$i
-	cp -fpr $RPM_BUILD_ROOT%{_datadir}/themes/$i/metacity-1/* $RPM_BUILD_ROOT%{_datadir}/themes/%{name}/$i/
-	rm -rf $RPM_BUILD_ROOT%{_datadir}/themes/$i
-	#ln -s %{_datadir}/themes/$i/metacity-1 $RPM_BUILD_ROOT%{_datadir}/themes/%{name}/$i
-done
+install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %find_lang %{name}
 
@@ -198,7 +181,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README AUTHORS NEWS
+%doc README AUTHORS NEWS doc/theme-format.txt
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*.so.*.*.*
 %attr(755,root,root) %{_libdir}/metacity-dialog
@@ -206,34 +189,35 @@ rm -rf $RPM_BUILD_ROOT
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
+%{_datadir}/xml/metacity/*.dtd
 
 %files themes-AgingGorilla
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/AgingGorilla/*
+%{_datadir}/themes/AgingGorilla/*
 
 %files themes-Atlanta
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/Atlanta/*
+%{_datadir}/themes/Atlanta/*
 
 %files themes-Bright
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/Bright/*
+%{_datadir}/themes/Bright/*
 
 %files themes-Crux
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/Crux/*
+%{_datadir}/themes/Crux/*
 
 %files themes-Esco
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/Esco/*
+%{_datadir}/themes/Esco/*
 
 %files themes-Metabox
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/Metabox/*
+%{_datadir}/themes/Metabox/*
 
 %files themes-Simple
 %defattr(644,root,root,755)
-%{_datadir}/themes/metacity/Simple/*
+%{_datadir}/themes/Simple/*
 
 %files devel
 %defattr(644,root,root,755)
