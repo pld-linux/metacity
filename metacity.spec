@@ -36,7 +36,7 @@ Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
