@@ -28,6 +28,7 @@ BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel >= 0.6
 BuildRequires:	fontconfig-devel
+BuildRequires:	gettext-devel
 Requires(post):	GConf2 >= 2.6.1
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	metacity-theme-base = %{version}-%{release}
