@@ -21,6 +21,7 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
+Requires(post):	/sbin/ldconfig
 Requires(post):	GConf2 >= 2.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,10 +47,10 @@ This package contains header files for metcity window manager.
 Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien metacity.
 
 %package static
-Summary:  Static metacity library
-Summary(pl):  Statyczna biblioteka metacity
-Group:    Development/Libraries
-Requires: %{name}-devel = %{version}
+Summary:	Static metacity library
+Summary(pl):	Statyczna biblioteka metacity
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}
                                                                                 
 %description static
 Static version of metacity library.
@@ -92,7 +93,10 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/sbin/ldconfig
 %gconf_schema_install
+
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -115,9 +119,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_pkgconfigdir}/*
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/*.so
 %{_libdir}/*.la
+%{_includedir}/*
+%{_pkgconfigdir}/*
 
 %files static
 %defattr(644,root,root,755)
