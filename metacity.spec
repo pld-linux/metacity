@@ -95,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/Esco/metacity-1
 %{_datadir}/themes/AgingGorilla/metacity-1
 %{_datadir}/themes/Metabox/metacity-1
+%{_datadir}/themes/Simple/metacity-1
 
 %files devel
 %defattr(644,root,root,755)
