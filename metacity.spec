@@ -9,13 +9,14 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.t
 Patch0:		%{name}-gconf.patch
 Patch1:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
-BuildRequires:	GConf2-devel >= 1.2.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	GConf2-devel >= 1.2.0
 BuildRequires:	gtk+2-devel >= 2.0.3
-BuildRequires:	libtool
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 2.0.0
+BuildRequires:	libtool
+BuildRequires:	rpm-build >= 4.1-7
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
