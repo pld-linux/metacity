@@ -28,7 +28,7 @@ BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.4.0
+BuildRequires:	pango-devel >= 1:1.4.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel >= 0.7
 Requires(post):	GConf2 >= 2.6.1
