@@ -53,10 +53,10 @@ Summary:	Static metacity library
 Summary(pl):	Statyczna biblioteka metacity
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
-                                                                                
+
 %description static
 Static version of metacity library.
-                                                                                
+
 %description static -l pl
 Statyczna wersja biblioteki metacity.
 
