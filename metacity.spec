@@ -2,7 +2,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.4.5
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
@@ -12,11 +12,12 @@ URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	GConf2-devel >= 1.2.0
-BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	gtk+2-devel >= 2.1.3
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	Xft-devel >= 2.0-6
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
