@@ -20,15 +20,15 @@ Patch2:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.6.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	fontconfig-devel
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.25
-BuildRequires:	libglade2-devel >= 1:2.3.6
+BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	rpm-build >= 4.1-10
-BuildRequires:	startup-notification-devel >= 0.6
-BuildRequires:	fontconfig-devel
-BuildRequires:	gettext-devel
+BuildRequires:	startup-notification-devel >= 0.7
 Requires(post):	GConf2 >= 2.6.1
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	metacity-theme-base = %{version}-%{release}
