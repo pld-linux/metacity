@@ -30,8 +30,8 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
-Requires(post):	/sbin/ldconfig
 Requires(post):	GConf2 >= 2.4.0.1
+Requires:	%{name}-libs = %{version}-%{release}
 Requires:	metacity-theme-base = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,6 +48,7 @@ Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
 Summary:	Metacity - libraries
 Summary(pl):	Metacity - biblioteki
 Group:		X11/Libraries
+Conflicts:	metacity <= 2.6.3-4
 
 %description libs
 This package contains libraries for Metacity window manager.
@@ -206,11 +207,8 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install
 
-%post libs
-/sbin/ldconfig
-
-%postun	libs
-/sbin/ldconfig
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
