@@ -1,16 +1,18 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.3.89
+Version:	2.3.233
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://people.redhat.com/~hp/metacity/%{name}-%{version}.tar.gz
+PAtch0:		%{name}-am15.patch
 URL:		http://people.redhat.com/~hp/metacity/
-BuildRequires:	GConf2-devel
+BuildRequires:	GConf2-devel >= 1.1.9
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 1.3.10
+BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libtool
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,12 +29,14 @@ Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-#rm -f missing
-#aclocal
-#autoconf
-#automake -a -c -f
+rm -f missing
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c -f
 %configure
 %{__make}
 
@@ -47,9 +51,8 @@ gzip -9nf README AUTHORS NEWS
 %find_lang %{name}
 
 %post
-export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
 %{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/metacity.schemas > /dev/null 2>&1
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
