@@ -8,16 +8,16 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.9.8
+Version:	2.9.13
 Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	b4b9b70a825f3d3b551818aa3703df43
+# Source0-md5:	3c771e228824baf4270505259dfd189b
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
-BuildRequires:	GConf2-devel >= 2.9.2
+BuildRequires:	GConf2-devel >= 2.9.91
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
@@ -29,7 +29,7 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.8.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel >= 0.8
-Requires(post):	GConf2 >= 2.9.2
+Requires(post):	GConf2 >= 2.9.91
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
@@ -219,6 +219,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_datadir}/xml/metacity
+%{_mandir}/man1/metacity*.1*
 
 %files themes-AgingGorilla
 %defattr(644,root,root,755)
