@@ -8,28 +8,28 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.8.8
+Version:	2.9.8
 Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	36c9ff136cff365dc40365000bfecec0
+Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	b4b9b70a825f3d3b551818aa3703df43
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
-BuildRequires:	GConf2-devel >= 2.6.1
-BuildRequires:	autoconf
+BuildRequires:	GConf2-devel >= 2.9.2
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.4.4
+BuildRequires:	gtk+2-devel >= 2:2.6.2
 BuildRequires:	intltool >= 0.31.3
-BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.4.0
+BuildRequires:	pango-devel >= 1:1.8.0
 BuildRequires:	rpm-build >= 4.1-10
-BuildRequires:	startup-notification-devel >= 0.7
-Requires(post):	GConf2 >= 2.6.1
+BuildRequires:	startup-notification-devel >= 0.8
+Requires(post):	GConf2 >= 2.9.2
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
@@ -218,7 +218,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
-%{_pixmapsdir}/*
 %{_datadir}/xml/metacity
 
 %files themes-AgingGorilla
