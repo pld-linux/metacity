@@ -8,16 +8,16 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.8.0
-Release:	2
+Version:	2.8.1
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	c40109eaaaaf28c70eafce140b61bf13
+# Source0-md5:	b311b41446c559056281f205f16d8aca
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-locale-names.patch
-BuildRequires:	GConf2-devel >= 2.6.0
+BuildRequires:	GConf2-devel >= 2.6.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.4.0
@@ -26,8 +26,8 @@ BuildRequires:	libglade2-devel >= 1:2.3.6
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	rpm-build >= 4.1-10
-BuildRequires:	startup-notification-devel >= 0.5
-Requires(post):	GConf2 >= 2.6.0
+BuildRequires:	startup-notification-devel >= 0.6
+Requires(post):	GConf2 >= 2.6.1
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	metacity-theme-base = %{version}-%{release}
 Provides:	gnome-wm
