@@ -91,7 +91,7 @@ umask 022
 %{_datadir}/gnome/wm-properties/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
-#%{_datadir}/control-center-2.0/capplets/*
+#%%{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/themes/Atlanta/metacity-1
 %{_datadir}/themes/Bright/metacity-1
 %{_datadir}/themes/Crux/metacity-1
