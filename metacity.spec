@@ -4,12 +4,12 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.6.1
-Release:	4
+Version:	2.6.2
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	0380801dae821ff67b8c8cb3410ecb01
+# Source0-md5:	92f83eebe98a9adc0cdf895627e58a42
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
