@@ -2,7 +2,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.5.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
@@ -17,6 +17,8 @@ BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
+BuildRequires:  fontconfig-devel
+BuildRequires:  xft-devel
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
@@ -57,6 +59,108 @@ Static version of metacity library.
 %description static -l pl
 Statyczna wersja biblioteki metacity.
 
+
+# Here go themes:
+
+%package        themes-AgingGorilla
+Summary:        AgingGorilla theme for metacity
+Summary(pl):    Motyw AgingGorilla dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+
+%description themes-AgingGorilla
+AgingGorilla theme for metacity
+
+%description themes-AgingGorilla -l pl
+Motyw AgingGorilla dla metacity
+
+
+%package        themes-Atlanta
+Summary:        Atlanta theme for metacity
+Summary(pl):    Motyw Atlanta dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+%description themes-Atlanta
+Atlanta theme for metacity
+
+%description themes-Atlanta -l pl
+Motyw Atlanta dla metacity
+
+
+%package        themes-Bright
+Summary:        Bright theme for metacity
+Summary(pl):    Motyw Bright dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+%description themes-Bright
+Bright theme for metacity
+
+%description themes-Bright -l pl
+Motyw Bright dla metacity
+
+
+%package        themes-Crux
+Summary:        Crux theme for metacity
+Summary(pl):    Motyw Crux dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+%description themes-Crux
+Crux theme for metacity
+
+%description themes-Crux -l pl
+Motyw Crux dla metacity
+
+
+%package        themes-Esco
+Summary:        Esco theme for metacity
+Summary(pl):    Motyw Esco dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+%description themes-Esco
+Esco theme for metacity
+
+%description themes-Esco -l pl
+Motyw Esco dla metacity
+
+
+%package        themes-Metabox
+Summary:        Metabox theme for metacity
+Summary(pl):    Motyw Metabox dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+%description themes-Metabox
+Metabox theme for metacity
+
+%description themes-Metabox -l pl
+Motyw Metabox dla metacity
+
+
+%package        themes-Simple
+Summary:        Simple theme for metacity
+Summary(pl):    Motyw Simple dla metacity
+Group:          Themes/Gtk
+Requires:       %name >= %version
+BuildArch:      noarch
+
+%description themes-Simple
+Simple theme for metacity
+
+%description themes-Simple -l pl
+Motyw Simple dla metacity
+
+
 %prep
 %setup -q
 %patch0 -p1
@@ -79,10 +183,14 @@ rm -rf $RPM_BUILD_ROOT
 	desktopfilesdir=%{_wmpropsdir} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
-for i in `ls $RPM_BUILD_ROOT%{_datadir}/themes/`
+#install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
+install -d $RPM_BUILD_ROOT%{_datadir}/themes/%{name}
+for i in `ls -1 $RPM_BUILD_ROOT%{_datadir}/themes/|grep -v metacity`
 do
-	ln -s %{_datadir}/themes/$i/metacity-1 $RPM_BUILD_ROOT%{_datadir}/%{name}/themes/$i
+	install -d $RPM_BUILD_ROOT%{_datadir}/themes/%{name}/$i
+	cp -fpr $RPM_BUILD_ROOT%{_datadir}/themes/$i/metacity-1/* $RPM_BUILD_ROOT%{_datadir}/themes/%{name}/$i/
+	rm -rf $RPM_BUILD_ROOT%{_datadir}/themes/$i
+	#ln -s %{_datadir}/themes/$i/metacity-1 $RPM_BUILD_ROOT%{_datadir}/themes/%{name}/$i
 done
 
 %find_lang %{name}
@@ -106,13 +214,34 @@ rm -rf $RPM_BUILD_ROOT
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
-%{_datadir}/themes/Atlanta/metacity-1
-%{_datadir}/themes/Bright/metacity-1
-%{_datadir}/themes/Crux/metacity-1
-%{_datadir}/themes/Esco/metacity-1
-%{_datadir}/themes/AgingGorilla/metacity-1
-%{_datadir}/themes/Metabox/metacity-1
-%{_datadir}/themes/Simple/metacity-1
+
+%files themes-AgingGorilla
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/AgingGorilla/*
+
+%files themes-Atlanta
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/Atlanta/*
+
+%files themes-Bright
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/Bright/*
+
+%files themes-Crux
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/Crux/*
+
+%files themes-Esco
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/Esco/*
+
+%files themes-Metabox
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/Metabox/*
+
+%files themes-Simple
+%defattr(644,root,root,755)
+%{_datadir}/themes/metacity/Simple/*
 
 %files devel
 %defattr(644,root,root,755)
