@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
+# Source0-md5: 78a9bc7e61bcfeea3b63460c5628d1f3
 Patch0:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.3.0
