@@ -12,7 +12,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.t
 # Source0-md5:	370e54af48136a43dcae3596069af791
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
-Patch1:		%{name}-default-themes.patch
+Patch1:		%{name}-search-theme.patch
 BuildRequires:	GConf2-devel >= 2.4.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
