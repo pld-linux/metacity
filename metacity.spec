@@ -67,7 +67,6 @@ Summary:        AgingGorilla theme for metacity
 Summary(pl):    Motyw AgingGorilla dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 
 %description themes-AgingGorilla
@@ -82,7 +81,6 @@ Summary:        Atlanta theme for metacity
 Summary(pl):    Motyw Atlanta dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 %description themes-Atlanta
 Atlanta theme for metacity
@@ -96,7 +94,6 @@ Summary:        Bright theme for metacity
 Summary(pl):    Motyw Bright dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 %description themes-Bright
 Bright theme for metacity
@@ -110,7 +107,6 @@ Summary:        Crux theme for metacity
 Summary(pl):    Motyw Crux dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 %description themes-Crux
 Crux theme for metacity
@@ -124,7 +120,6 @@ Summary:        Esco theme for metacity
 Summary(pl):    Motyw Esco dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 %description themes-Esco
 Esco theme for metacity
@@ -138,7 +133,6 @@ Summary:        Metabox theme for metacity
 Summary(pl):    Motyw Metabox dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 %description themes-Metabox
 Metabox theme for metacity
@@ -152,7 +146,6 @@ Summary:        Simple theme for metacity
 Summary(pl):    Motyw Simple dla metacity
 Group:          Themes/Gtk
 Requires:       %name >= %version
-BuildArch:      noarch
 
 %description themes-Simple
 Simple theme for metacity
