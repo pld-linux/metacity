@@ -11,7 +11,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.6.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
@@ -225,31 +225,31 @@ rm -rf $RPM_BUILD_ROOT
 
 %files themes-AgingGorilla
 %defattr(644,root,root,755)
-%{_datadir}/themes/AgingGorilla/*
+%{_datadir}/themes/AgingGorilla
 
 %files themes-Atlanta
 %defattr(644,root,root,755)
-%{_datadir}/themes/Atlanta/*
+%{_datadir}/themes/Atlanta
 
 %files themes-Bright
 %defattr(644,root,root,755)
-%{_datadir}/themes/Bright/*
+%{_datadir}/themes/Bright
 
 %files themes-Crux
 %defattr(644,root,root,755)
-%{_datadir}/themes/Crux/*
+%{_datadir}/themes/Crux
 
 %files themes-Esco
 %defattr(644,root,root,755)
-%{_datadir}/themes/Esco/*
+%{_datadir}/themes/Esco
 
 %files themes-Metabox
 %defattr(644,root,root,755)
-%{_datadir}/themes/Metabox/*
+%{_datadir}/themes/Metabox
 
 %files themes-Simple
 %defattr(644,root,root,755)
-%{_datadir}/themes/Simple/*
+%{_datadir}/themes/Simple
 
 %files libs
 %defattr(644,root,root,755)
