@@ -5,7 +5,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.5.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
@@ -26,6 +26,7 @@ BuildRequires:	startup-notification-devel
 BuildRequires:  xft-devel >= 2.1
 Requires(post):	/sbin/ldconfig
 Requires(post):	GConf2 >= 2.3.0
+Requires:	metacity-theme-base = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wmpropsdir	/usr/share/wm-properties
@@ -66,6 +67,7 @@ Summary:	AgingGorilla theme for metacity
 Summary(pl):	Motyw AgingGorilla dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-AgingGorilla
 AgingGorilla theme for metacity.
@@ -78,6 +80,7 @@ Summary:	Atlanta theme for metacity
 Summary(pl):	Motyw Atlanta dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-Atlanta
 Atlanta theme for metacity.
@@ -90,6 +93,7 @@ Summary:	Bright theme for metacity
 Summary(pl):	Motyw Bright dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-Bright
 Bright theme for metacity.
@@ -102,6 +106,7 @@ Summary:	Crux theme for metacity
 Summary(pl):	Motyw Crux dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-Crux
 Crux theme for metacity.
@@ -114,6 +119,7 @@ Summary:	Esco theme for metacity
 Summary(pl):	Motyw Esco dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-Esco
 Esco theme for metacity.
@@ -126,6 +132,7 @@ Summary:	Metabox theme for metacity
 Summary(pl):	Motyw Metabox dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-Metabox
 Metabox theme for metacity.
@@ -138,6 +145,7 @@ Summary:	Simple theme for metacity
 Summary(pl):	Motyw Simple dla metacity
 Group:		Themes/Gtk
 Requires:	%{name} = %{version}
+Provides:	metacity-theme-base = %{version}
 
 %description themes-Simple
 Simple theme for metacity.
