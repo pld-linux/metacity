@@ -4,18 +4,18 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.5.5
-Release:	2
+Version:	2.6.0
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	af8e466ca305b0c251fc050ec7587094
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	790707fb98d1040952eac20b8cf5f5e2
 Patch0:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
-BuildRequires:	GConf2-devel >= 2.3.0
+BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	gtk+2-devel >= 2.2.4
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
@@ -23,7 +23,7 @@ BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
 Requires(post):	/sbin/ldconfig
-Requires(post):	GConf2 >= 2.3.0
+Requires(post):	GConf2 >= 2.4.0
 Requires:	metacity-theme-base = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
