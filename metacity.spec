@@ -66,7 +66,7 @@ Statyczna wersja biblioteki metacity.
 Summary:        AgingGorilla theme for metacity
 Summary(pl):    Motyw AgingGorilla dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 
 %description themes-AgingGorilla
@@ -80,7 +80,7 @@ Motyw AgingGorilla dla metacity
 Summary:        Atlanta theme for metacity
 Summary(pl):    Motyw Atlanta dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 %description themes-Atlanta
 Atlanta theme for metacity
@@ -93,7 +93,7 @@ Motyw Atlanta dla metacity
 Summary:        Bright theme for metacity
 Summary(pl):    Motyw Bright dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 %description themes-Bright
 Bright theme for metacity
@@ -106,7 +106,7 @@ Motyw Bright dla metacity
 Summary:        Crux theme for metacity
 Summary(pl):    Motyw Crux dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 %description themes-Crux
 Crux theme for metacity
@@ -119,7 +119,7 @@ Motyw Crux dla metacity
 Summary:        Esco theme for metacity
 Summary(pl):    Motyw Esco dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 %description themes-Esco
 Esco theme for metacity
@@ -132,7 +132,7 @@ Motyw Esco dla metacity
 Summary:        Metabox theme for metacity
 Summary(pl):    Motyw Metabox dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 %description themes-Metabox
 Metabox theme for metacity
@@ -145,14 +145,13 @@ Motyw Metabox dla metacity
 Summary:        Simple theme for metacity
 Summary(pl):    Motyw Simple dla metacity
 Group:          Themes/Gtk
-Requires:       %name >= %version
+Requires:       %{name} >= %{version}
 
 %description themes-Simple
 Simple theme for metacity
 
 %description themes-Simple -l pl
 Motyw Simple dla metacity
-
 
 %prep
 %setup -q
