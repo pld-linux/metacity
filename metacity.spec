@@ -59,8 +59,10 @@ rm -f missing
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	pkgconfigdir=%{_pkgconfigdir}
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
 for i in `ls $RPM_BUILD_ROOT%{_datadir}/themes/`
@@ -96,4 +98,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%{_pkgconfigdir}/*
 %{_includedir}/*
