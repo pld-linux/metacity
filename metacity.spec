@@ -2,7 +2,7 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.5.0
+Version:	2.5.1
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
@@ -18,6 +18,7 @@ BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
+BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
 Requires(post):	GConf2 >= 2.3.0
