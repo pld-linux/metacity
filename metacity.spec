@@ -14,7 +14,6 @@ License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	b311b41446c559056281f205f16d8aca
-Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-locale-names.patch
 BuildRequires:	GConf2-devel >= 2.6.1
@@ -188,7 +187,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/{xml/metacity,xsessions}
+install -d $RPM_BUILD_ROOT%{_datadir}/{xml/metacity}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -196,7 +195,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/{xml/metacity,xsessions}
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %find_lang %{name}
 
@@ -215,7 +213,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
-%{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
