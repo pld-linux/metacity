@@ -1,4 +1,5 @@
 Summary:	Metacity window manager
+Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.3.55
 Release:	1
@@ -19,6 +20,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Metacity is a simple window manager that integrates nicely with GNOME
 2.
 
+%description -l pl
+Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME
+2.
+
 %prep
 %setup -q
 
@@ -28,7 +33,7 @@ aclocal
 autoconf
 automake -a -c -f
 %configure
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
