@@ -1,4 +1,3 @@
-
 #
 # TODO:
 # - something with %{_datadir}/themes/Theme dirs (some belong to gnome-themes,
@@ -6,33 +5,31 @@
 # - metacity requires itself (links with installed libmetacity-private
 #   instead of linking with built one?)
 #
-
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.6.5
+Version:	2.8.0
 Release:	2
 License:	GPL
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	2530cca3818a6c25caa2f2aa135cfd62
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	c40109eaaaaf28c70eafce140b61bf13
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
-Patch1:		%{name}-search-theme.patch
-Patch2:		%{name}-reduced_resource.patch
-BuildRequires:	GConf2-devel >= 2.4.0.1
+Patch1:		%{name}-locale-names.patch
+BuildRequires:	GConf2-devel >= 2.6.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.2.4
+BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool >= 0.25
-BuildRequires:	libglade2-devel >= 2.0.0
+BuildRequires:	libglade2-devel >= 1:2.3.6
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.2.0
+BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	rpm-build >= 4.1-10
-BuildRequires:	startup-notification-devel
-Requires(post):	GConf2 >= 2.4.0.1
+BuildRequires:	startup-notification-devel >= 0.5
+Requires(post):	GConf2 >= 2.6.0
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	metacity-theme-base = %{version}
+Requires:	metacity-theme-base = %{version}-%{release}
 Provides:	gnome-wm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,7 +58,7 @@ Pakiet zawieraj±cy biblioteki zarz±dcy okien Metacity.
 Summary:	Metacity - header files
 Summary(pl):	Metacity - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-libs = %{version}
+Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -73,7 +70,7 @@ Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien Metacity.
 Summary:	Static Metacity library
 Summary(pl):	Statyczna biblioteka Metacity
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of Metacity library.
@@ -85,8 +82,8 @@ Statyczna wersja biblioteki Metacity.
 Summary:	AgingGorilla theme for Metacity
 Summary(pl):	Motyw AgingGorilla dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-AgingGorilla
 AgingGorilla theme for Metacity.
@@ -98,8 +95,8 @@ Motyw AgingGorilla dla Metacity.
 Summary:	Atlanta theme for Metacity
 Summary(pl):	Motyw Atlanta dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-Atlanta
 Atlanta theme for Metacity.
@@ -111,8 +108,8 @@ Motyw Atlanta dla Metacity.
 Summary:	Bright theme for Metacity
 Summary(pl):	Motyw Bright dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-Bright
 Bright theme for Metacity.
@@ -124,8 +121,8 @@ Motyw Bright dla Metacity.
 Summary:	Crux theme for Metacity
 Summary(pl):	Motyw Crux dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-Crux
 Crux theme for Metacity.
@@ -137,8 +134,8 @@ Motyw Crux dla Metacity.
 Summary:	Esco theme for Metacity
 Summary(pl):	Motyw Esco dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-Esco
 Esco theme for Metacity.
@@ -150,8 +147,8 @@ Motyw Esco dla Metacity.
 Summary:	Metabox theme for Metacity
 Summary(pl):	Motyw Metabox dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-Metabox
 Metabox theme for Metacity.
@@ -163,8 +160,8 @@ Motyw Metabox dla Metacity.
 Summary:	Simple theme for Metacity
 Summary(pl):	Motyw Simple dla Metacity
 Group:		Themes/Gtk
-Requires:	%{name} = %{version}
-Provides:	metacity-theme-base = %{version}
+Requires:	%{name} = %{version}-%{release}
+Provides:	metacity-theme-base = %{version}-%{release}
 
 %description themes-Simple
 Simple theme for Metacity.
@@ -176,7 +173,8 @@ Motyw Simple dla Metacity.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+
+mv po/{no,nb}.po
 
 %build
 rm -f missing
@@ -213,7 +211,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README AUTHORS NEWS doc/theme-format.txt
+%doc AUTHORS NEWS README rationales.txt doc/theme-format.txt
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
@@ -257,6 +255,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc ChangeLog HACKING doc/dialogs.txt
 %attr(755,root,root) %{_libdir}/*.so
 %{_libdir}/*.la
 %{_includedir}/*
