@@ -1,0 +1,12 @@
+--- metacity-2.3.987/src/Makefile.am.wiget	Wed Jun 12 15:45:06 2002
++++ metacity-2.3.987/src/Makefile.am	Wed Jun 12 15:45:25 2002
+@@ -104,9 +104,6 @@
+ 
+ @INTLTOOL_SCHEMAS_RULE@
+ 
+-install-data-local:
+-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
+-
+ IMAGES=default_icon.png
+ VARIABLES=default_icon_data $(srcdir)/default_icon.png
+ 
