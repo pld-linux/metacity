@@ -8,18 +8,18 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.8.3
-Release:	2
+Version:	2.8.4
+Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	9657fb83fc4e4dc8b506bf55e105883b
+# Source0-md5:	ff1cdc1232e14109ff2ba1e92bc69b5f
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-locale-names.patch
 Patch2:		%{name}-swap-resize-button.patch
 Patch3:		%{name}-disable-prevention-focus-stealing-logic.patch
-BuildRequires:	GConf2-devel >= 2.6.1
+BuildRequires:	GConf2-devel >= 2.6.91
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
@@ -31,7 +31,7 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel >= 0.7
-Requires(post):	GConf2 >= 2.6.1
+Requires(post):	GConf2 >= 2.6.91
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
@@ -180,7 +180,7 @@ Motyw Simple dla Metacity.
 %patch2 -p1
 %patch3 -p0
 
-mv po/{no,nb}.po
+rm po/no.po
 
 %build
 rm -f missing
