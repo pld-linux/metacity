@@ -1,11 +1,11 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.4.1
-Release:	2
+Version:	2.4.2
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
-Source0:	http://people.redhat.com/~hp/metacity/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-gconf.patch
 URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 1.2.0
@@ -78,5 +78,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/Bright/metacity-1
 %{_datadir}/themes/Crux/metacity-1
 %{_datadir}/themes/Esco/metacity-1
-%{_datadir}/themes/Gorilla/metacity-1
+%{_datadir}/themes/AgingGorilla/metacity-1
 %{_datadir}/themes/Metabox/metacity-1
