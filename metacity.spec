@@ -17,6 +17,7 @@ BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	startup-notification-devel
 BuildRequires:	Xft-devel >= 2.1
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,7 +52,8 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-startup-notification
 %{__make}
 
 %install
