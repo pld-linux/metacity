@@ -45,6 +45,18 @@ This package contains header files for metcity window manager.
 %description devel -l pl
 Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien metacity.
 
+%package static
+Summary:  Static metacity library
+Summary(pl):  Statyczna biblioteka metacity
+Group:    Development/Libraries
+Requires: %{name}-devel = %{version}
+                                                                                
+%description static
+Static version of metacity library.
+                                                                                
+%description static -l pl
+Statyczna wersja biblioteki metacity.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -80,14 +92,14 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
 %gconf_schema_install
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README AUTHORS NEWS
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*
+%attr(755,root,root) %{_libdir}/*.so.*.*.*
+%attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
 %{_datadir}/gnome/wm-properties/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
@@ -105,3 +117,8 @@ umask 022
 %defattr(644,root,root,755)
 %{_pkgconfigdir}/*
 %{_includedir}/*
+%{_libdir}/*.la
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/*.a
