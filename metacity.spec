@@ -5,7 +5,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.6.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
@@ -162,8 +162,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-schemas-install \
-	--enable-config-dialog
+	--disable-schemas-install 
 %{__make}
 
 %install
@@ -195,7 +194,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.so.*.*.*
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
-%{_datadir}/control-center-2.0/capplets/metacity-properties.desktop
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
