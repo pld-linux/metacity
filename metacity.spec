@@ -1,4 +1,3 @@
-# TODO: use %{_wmpropsdir} instead of %{_datadir}/gnome/wm-properties
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
@@ -79,7 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir}
+	pkgconfigdir=%{_pkgconfigdir} \
+	desktopfilesdir=%{_wmpropsdir}
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
 for i in `ls $RPM_BUILD_ROOT%{_datadir}/themes/`
@@ -105,7 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.so.*.*.*
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
-%{_datadir}/gnome/wm-properties/metacity.desktop
+%{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
 #%%{_datadir}/control-center-2.0/capplets/*
