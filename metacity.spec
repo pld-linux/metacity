@@ -4,12 +4,12 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.5.3
-Release:	2
+Version:	2.5.5
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	e41eff81d342873440442e3e4a11d621
+# Source0-md5:	af8e466ca305b0c251fc050ec7587094
 Patch0:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.3.0
