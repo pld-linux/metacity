@@ -1,18 +1,20 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.3.233
+Version:	2.3.987
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://people.redhat.com/~hp/metacity/%{name}-%{version}.tar.gz
-PAtch0:		%{name}-am15.patch
+Patch0:		%{name}-gconf.patch
 URL:		http://people.redhat.com/~hp/metacity/
-BuildRequires:	GConf2-devel >= 1.1.9
+BuildRequires:	GConf2-devel >= 1.2.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 2.0.3
 BuildRequires:	libtool
+BuildRequires:	intltool >= 0.22
+BuildRequires:	libglade2-devel >= 2.0.0
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,22 +48,23 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README AUTHORS NEWS
 
 %find_lang %{name}
 
 %post
-GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
-%{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/metacity.schemas > /dev/null 2>&1
+GCONF_CONFIG_SOURCE="" \
+%{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README AUTHORS NEWS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*
 %{_datadir}/%{name}
 %{_datadir}/gnome/wm-properties/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
+%{_pixmapsdir}/*
+%{_datadir}/control-center-2.0/capplets/*
