@@ -11,7 +11,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.6.3
-Release:	4.1
+Release:	5
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
@@ -33,6 +33,7 @@ BuildRequires:	startup-notification-devel
 Requires(post):	GConf2 >= 2.4.0.1
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	metacity-theme-base = %{version}
+Provides:	gnome-wm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wmpropsdir	/usr/share/wm-properties
