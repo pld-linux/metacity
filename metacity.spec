@@ -1,13 +1,12 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.5.1
-Release:	2
+Version:	2.5.2
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-gconf.patch
-Patch1:		%{name}-libtool.patch
+Patch0:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.3.0
 BuildRequires:	Xft-devel >= 2.1
@@ -60,7 +59,6 @@ Statyczna wersja biblioteki metacity.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing
@@ -69,17 +67,16 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-startup-notification
+	--disable-schemas-install
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir} \
-	desktopfilesdir=%{_wmpropsdir}
+	desktopfilesdir=%{_wmpropsdir} \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
 for i in `ls $RPM_BUILD_ROOT%{_datadir}/themes/`
@@ -108,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
-#%%{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/themes/Atlanta/metacity-1
 %{_datadir}/themes/Bright/metacity-1
 %{_datadir}/themes/Crux/metacity-1
