@@ -10,12 +10,12 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.7.0
+Version:	2.7.1
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	2b14706ccedb102bbb425ce5d74dbbb8
+# Source0-md5:	058fd6245595a0501c9542b67eb556c8
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-locale-names.patch
