@@ -5,13 +5,14 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.6.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
 # Source0-md5:	370e54af48136a43dcae3596069af791
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
+Patch1:		%{name}-default-themes.patch
 BuildRequires:	GConf2-devel >= 2.4.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -154,6 +155,7 @@ Motyw Simple dla metacity.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
