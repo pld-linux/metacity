@@ -15,11 +15,11 @@ URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.3.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:  fontconfig-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
-BuildRequires:  fontconfig-devel
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
