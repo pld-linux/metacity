@@ -48,6 +48,11 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/themes
+for i in `ls $RPM_BUILD_ROOT%{_datadir}/themes/`
+do
+	ln -s %{_datadir}/themes/$i/metacity-1 $RPM_BUILD_ROOT%{_datadir}/%{name}/themes/$i
+done
 
 %find_lang %{name}
 
