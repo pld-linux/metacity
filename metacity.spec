@@ -2,7 +2,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
 Version:	2.4.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://people.redhat.com/~hp/metacity/%{name}-%{version}.tar.gz
@@ -57,6 +57,7 @@ done
 %find_lang %{name}
 
 %post
+umask 022
 GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 %{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
 
