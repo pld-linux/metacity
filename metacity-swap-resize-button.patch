@@ -1,0 +1,21 @@
+diff -urN metacity-2.8.1.orig/src/display.c metacity-2.8.1/src/display.c
+--- metacity-2.8.1.orig/src/display.c	2001-09-15 00:09:16.000000000 +0200
++++ metacity-2.8.1/src/display.c	2004-06-07 00:20:22.199546400 +0200
+@@ -1404,7 +1404,7 @@
+               if (!unmodified)
+                 begin_move = TRUE;
+             }
+-          else if (!unmodified && event->xbutton.button == 2)
++          else if (!unmodified && event->xbutton.button == 3)
+             {
+               if (window->has_resize_func)
+                 {
+@@ -1440,7 +1440,7 @@
+                                               event->xbutton.y_root);
+                 }
+             }
+-          else if (event->xbutton.button == 3)
++          else if (event->xbutton.button == 2)
+             {
+               meta_window_show_menu (window,
+                                      event->xbutton.x_root,
