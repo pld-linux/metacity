@@ -8,13 +8,13 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.8.5
+Version:	2.8.6
 Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	c535fe74d001ad701e5b794e9dc14371
+# Source0-md5:	c49e4b5575503975516159780855e317
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.6.1
@@ -23,7 +23,7 @@ BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	intltool >= 0.25
+BuildRequires:	intltool >= 0.31.3
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.4.0
