@@ -1,7 +1,7 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
-Version:	2.3.987
+Version:	2.4.0
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
@@ -68,3 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/*
 %{_pixmapsdir}/*
 %{_datadir}/control-center-2.0/capplets/*
+%{_datadir}/themes/Atlanta/metacity-1
+%{_datadir}/themes/Bright/metacity-1
+%{_datadir}/themes/Crux/metacity-1
+%{_datadir}/themes/Esco/metacity-1
+%{_datadir}/themes/Gorilla/metacity-1
+%{_datadir}/themes/Metabox/metacity-1
