@@ -1,3 +1,4 @@
+# TODO: use %{_wmpropsdir} instead of %{_datadir}/gnome/wm-properties
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien metacity
 Name:		metacity
@@ -9,18 +10,20 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.t
 Patch0:		%{name}-gconf.patch
 Patch1:		%{name}-libtool.patch
 URL:		http://people.redhat.com/~hp/metacity/
+BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	Xft-devel >= 2.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	startup-notification-devel
-BuildRequires:	Xft-devel >= 2.1
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_wmpropsdir	/usr/share/wm-properties
 
 %description
 Metacity is a simple window manager that integrates nicely with
@@ -72,12 +75,12 @@ done
 
 %find_lang %{name}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 umask 022
 %gconf_schema_install
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
