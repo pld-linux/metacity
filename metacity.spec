@@ -12,7 +12,6 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.t
 # Source0-md5:	92f83eebe98a9adc0cdf895627e58a42
 Source1:	%{name}-xsession.desktop
 Patch0:		%{name}-libtool.patch
-URL:		http://people.redhat.com/~hp/metacity/
 BuildRequires:	GConf2-devel >= 2.4.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
