@@ -49,7 +49,6 @@ Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
 Summary:	Metacity - libraries
 Summary(pl):	Metacity - biblioteki
 Group:		X11/Libraries
-Requires(post,postun):	/sbin/ldconfig
 Conflicts:	metacity <= 2.6.3-4
 
 %description libs
