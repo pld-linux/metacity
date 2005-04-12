@@ -8,13 +8,13 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.10.0
+Version:	2.10.1
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	fed363d8ce6ae33d6dd4850c8e48fbbc
+# Source0-md5:	c326eb1aed8742057e9ad94b9ccae877
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -28,9 +28,9 @@ BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.8.0
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
-Requires(post):	GConf2 >= 2.10.0
+Requires(post,preun):	GConf2 >= 2.10.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
@@ -49,6 +49,7 @@ Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
 Summary:	Metacity - libraries
 Summary(pl):	Metacity - biblioteki
 Group:		X11/Libraries
+Requires(post,postun):	/sbin/ldconfig
 Conflicts:	metacity <= 2.6.3-4
 
 %description libs
@@ -206,10 +207,16 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install
+%gconf_schema_install metacity.schemas
 
-%post	libs -p /sbin/ldconfig
-%postun	libs -p /sbin/ldconfig
+%preun
+%gconf_schema_uninstall metacity.schemas
+
+%post	libs
+%ldconfig_post
+
+%postun	libs
+%ldconfig_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
