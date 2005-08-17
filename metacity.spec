@@ -9,7 +9,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.11.2
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -22,11 +22,11 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.31.3
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.8.0
+BuildRequires:	pango-devel >= 1:1.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
