@@ -8,29 +8,29 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.10.3
+Version:	2.12.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	ca60e4c135118dbc03f87dc10b164f45
+Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	fa01d95221a64a1f6d4e088ca9b6362e
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
-BuildRequires:	GConf2-devel >= 2.10.0
+BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.31.3
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.8.0
+BuildRequires:	pango-devel >= 1:1.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
-Requires(post,preun):	GConf2 >= 2.10.0
+Requires(post,preun):	GConf2 >= 2.12.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
@@ -220,7 +220,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
 %{_wmpropsdir}/metacity.desktop
-%{_sysconfdir}/gconf/schemas/*
+%{_sysconfdir}/gconf/schemas/metacity.schemas
 %{_datadir}/xml/metacity
 %{_mandir}/man1/metacity*.1*
 
