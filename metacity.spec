@@ -8,13 +8,13 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.12.2
+Version:	2.12.3
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	4caabbd7a3ae14ec5ccf6ada2d466049
+# Source0-md5:	15df85021a8aa1d95fe60551105129db
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.12.0
@@ -178,6 +178,7 @@ Motyw Simple dla Metacity.
 %patch1 -p1
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
