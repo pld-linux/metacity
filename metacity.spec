@@ -8,13 +8,13 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.14.5
+Version:	2.15.3
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	a14c4a07e456a2590452d6c9db2e5153
+Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	2fd9f4418daf0d2e04b5a94b7992c955
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.14.0
@@ -22,11 +22,11 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.8.18
-BuildRequires:	intltool >= 0.31.3
+BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.12.3
+BuildRequires:	pango-devel >= 1:1.13.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
@@ -198,7 +198,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
 
 %find_lang %{name}
 
