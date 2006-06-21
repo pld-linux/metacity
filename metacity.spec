@@ -9,7 +9,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.15.5
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -22,8 +22,9 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	gtk+2-devel >= 2:2.9.3
 BuildRequires:	intltool >= 0.35.0
+BuildRequires:	libcm-devel >= 0.0.22
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.2
@@ -184,7 +185,8 @@ Motyw Simple dla Metacity.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-schemas-install 
+	--disable-schemas-install \
+	--enable-compositor
 %{__make}
 
 %install
