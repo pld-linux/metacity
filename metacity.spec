@@ -9,7 +9,7 @@ Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
 Version:	2.15.5
-Release:	2
+Release:	3
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
