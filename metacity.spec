@@ -8,13 +8,13 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.16.1
+Version:	2.16.2
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	e712eebdfb2445568079f46c666e82b3
+# Source0-md5:	d0c3925130c824e2b02b0252d76c9250
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 BuildRequires:	GConf2-devel >= 2.14.0
@@ -27,7 +27,7 @@ BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libcm-devel >= 0.0.22-3
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.14.3
+BuildRequires:	pango-devel >= 1:1.14.4
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
