@@ -201,8 +201,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
-
 %find_lang %{name}
 
 %clean
