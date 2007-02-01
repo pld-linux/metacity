@@ -13,31 +13,31 @@
 Summary:	Metacity window manager
 Summary(pl):	Zarz±dca okien Metacity
 Name:		metacity
-Version:	2.16.3
-Release:	2
+Version:	2.16.5
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	95bdf58d175284217132a12a353fe7ec
+# Source0-md5:	7ac14eb4caffbb15df91b70b0def2f5e
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 Patch2:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
-BuildRequires:	GConf2-devel >= 2.14.0
+BuildRequires:	GConf2-devel >= 2.16.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.5
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.4
 BuildRequires:	libcm-devel >= 0.0.22-3
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.14.5
+BuildRequires:	pango-devel >= 1:1.14.10
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
-Requires(post,preun):	GConf2 >= 2.14.0
+Requires(post,preun):	GConf2 >= 2.16.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
@@ -227,7 +227,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README rationales.txt doc/theme-format.txt
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/metacity
+%attr(755,root,root) %{_bindir}/metacity-message
+%attr(755,root,root) %{_bindir}/metacity-theme-viewer
+%attr(755,root,root) %{_bindir}/metacity-window-demo
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
 %{_wmpropsdir}/metacity.desktop
@@ -265,16 +268,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libmetacity-private.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog HACKING doc/dialogs.txt
-%attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
-%{_includedir}/*
-%{_pkgconfigdir}/*
+%attr(755,root,root) %{_libdir}/libmetacity-private.so
+%{_libdir}/libmetacity-private.la
+%{_includedir}/metacity-1
+%{_pkgconfigdir}/libmetacity-private.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libmetacity-private.a
