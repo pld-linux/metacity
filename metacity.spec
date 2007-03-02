@@ -11,29 +11,29 @@
                             # http://ubuntuforums.org/showthread.php?t=242502
 
 Summary:	Metacity window manager
-Summary(pl):	Zarz±dca okien Metacity
+Summary(pl.UTF-8):	ZarzÄ…dca okien Metacity
 Name:		metacity
-Version:	2.16.5
+Version:	2.17.8
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	7ac14eb4caffbb15df91b70b0def2f5e
+Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	85c46cdeda8afd2b4c817d531dfc8eed
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 Patch2:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
-BuildRequires:	GConf2-devel >= 2.16.0
+BuildRequires:	GConf2-devel >= 2.16.1
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.9
-BuildRequires:	intltool >= 0.35.4
-BuildRequires:	libcm-devel >= 0.0.22-3
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libcm-devel >= 0.1.1
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.14.10
+BuildRequires:	pango-devel >= 1:1.16.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
@@ -49,24 +49,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Metacity is a simple window manager that integrates nicely with
 GNOME2.
 
-%description -l pl
-Metacity jest prostym zarz±dc± okien ³adnie integruj±cym siê z GNOME2.
+%description -l pl.UTF-8
+Metacity jest prostym zarzÄ…dcÄ… okien Å‚adnie integrujÄ…cym siÄ™ z GNOME2.
 
 %package libs
 Summary:	Metacity - libraries
-Summary(pl):	Metacity - biblioteki
+Summary(pl.UTF-8):	Metacity - biblioteki
 Group:		X11/Libraries
 Conflicts:	metacity <= 2.6.3-4
 
 %description libs
 This package contains libraries for Metacity window manager.
 
-%description libs -l pl
-Pakiet zawieraj±cy biblioteki zarz±dcy okien Metacity.
+%description libs -l pl.UTF-8
+Pakiet zawierajÄ…cy biblioteki zarzÄ…dcy okien Metacity.
 
 %package devel
 Summary:	Metacity - header files
-Summary(pl):	Metacity - pliki nag³ówkowe
+Summary(pl.UTF-8):	Metacity - pliki nagÅ‚Ã³wkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	libcm-devel
@@ -74,24 +74,24 @@ Requires:	libcm-devel
 %description devel
 This package contains header files for Metacity window manager.
 
-%description devel -l pl
-Pakiet zawieraj±cy pliki nag³ówkowe zarz±dcy okien Metacity.
+%description devel -l pl.UTF-8
+Pakiet zawierajÄ…cy pliki nagÅ‚Ã³wkowe zarzÄ…dcy okien Metacity.
 
 %package static
 Summary:	Static Metacity library
-Summary(pl):	Statyczna biblioteka Metacity
+Summary(pl.UTF-8):	Statyczna biblioteka Metacity
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static version of Metacity library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki Metacity.
 
 %package themes-AgingGorilla
 Summary:	AgingGorilla theme for Metacity
-Summary(pl):	Motyw AgingGorilla dla Metacity
+Summary(pl.UTF-8):	Motyw AgingGorilla dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -99,12 +99,12 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-AgingGorilla
 AgingGorilla theme for Metacity.
 
-%description themes-AgingGorilla -l pl
+%description themes-AgingGorilla -l pl.UTF-8
 Motyw AgingGorilla dla Metacity.
 
 %package themes-Atlanta
 Summary:	Atlanta theme for Metacity
-Summary(pl):	Motyw Atlanta dla Metacity
+Summary(pl.UTF-8):	Motyw Atlanta dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -112,12 +112,12 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-Atlanta
 Atlanta theme for Metacity.
 
-%description themes-Atlanta -l pl
+%description themes-Atlanta -l pl.UTF-8
 Motyw Atlanta dla Metacity.
 
 %package themes-Bright
 Summary:	Bright theme for Metacity
-Summary(pl):	Motyw Bright dla Metacity
+Summary(pl.UTF-8):	Motyw Bright dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -125,12 +125,12 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-Bright
 Bright theme for Metacity.
 
-%description themes-Bright -l pl
+%description themes-Bright -l pl.UTF-8
 Motyw Bright dla Metacity.
 
 %package themes-Crux
 Summary:	Crux theme for Metacity
-Summary(pl):	Motyw Crux dla Metacity
+Summary(pl.UTF-8):	Motyw Crux dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -138,12 +138,12 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-Crux
 Crux theme for Metacity.
 
-%description themes-Crux -l pl
+%description themes-Crux -l pl.UTF-8
 Motyw Crux dla Metacity.
 
 %package themes-Esco
 Summary:	Esco theme for Metacity
-Summary(pl):	Motyw Esco dla Metacity
+Summary(pl.UTF-8):	Motyw Esco dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -151,12 +151,12 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-Esco
 Esco theme for Metacity.
 
-%description themes-Esco -l pl
+%description themes-Esco -l pl.UTF-8
 Motyw Esco dla Metacity.
 
 %package themes-Metabox
 Summary:	Metabox theme for Metacity
-Summary(pl):	Motyw Metabox dla Metacity
+Summary(pl.UTF-8):	Motyw Metabox dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -164,12 +164,12 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-Metabox
 Metabox theme for Metacity.
 
-%description themes-Metabox -l pl
+%description themes-Metabox -l pl.UTF-8
 Motyw Metabox dla Metacity.
 
 %package themes-Simple
 Summary:	Simple theme for Metacity
-Summary(pl):	Motyw Simple dla Metacity
+Summary(pl.UTF-8):	Motyw Simple dla Metacity
 Group:		Themes/GTK+
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -177,7 +177,7 @@ Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
 %description themes-Simple
 Simple theme for Metacity.
 
-%description themes-Simple -l pl
+%description themes-Simple -l pl.UTF-8
 Motyw Simple dla Metacity.
 
 %prep
