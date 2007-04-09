@@ -13,13 +13,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.18.1
+Version:	2.18.2
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	86387e27d33fa3eb8c5617d37d9cd799
+# Source0-md5:	45cdadd7d6213aeca3d9f1acc1d1d70f
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 Patch2:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
