@@ -13,27 +13,27 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.18.5
+Version:	2.20.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	7928172bf41f6b63976a62554a699674
+Source0:	http://ftp.gnome.org/pub/gnome/sources/metacity/2.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	e9c6317c85db019ac2d832dd9f45f536
 Patch0:		%{name}-libtool.patch
 Patch1:		%{name}-swap-resize-button.patch
 Patch2:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.19.1
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.10
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libcm-devel >= 0.1.1
-BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.16.1
+BuildRequires:	pango-devel >= 1:1.18.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
@@ -235,6 +235,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
+%{_datadir}/gnome-control-center/keybindings/*.xml
 %{_datadir}/xml/metacity
 %{_mandir}/man1/metacity*.1*
 
