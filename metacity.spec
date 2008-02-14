@@ -13,29 +13,26 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.21.8
+Version:	2.21.13
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	485e9f160764f029d1b3bd82066ee495
-Patch1:		%{name}-swap-resize-button.patch
-Patch2:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
-BuildRequires:	GConf2-devel >= 2.19.1
+# Source0-md5:	d5c4b1179b32c4a7c439bd0f44a94758
+Patch0:		%{name}-swap-resize-button.patch
+Patch1:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
+BuildRequires:	GConf2-devel >= 2.21.90
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	fontconfig-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.36.2
-BuildRequires:	libcm-devel >= 0.1.1
-BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	gtk+2-devel >= 2:2.12.8
+BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.18.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
+BuildRequires:	xorg-lib-libSM-devel
 Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
@@ -70,7 +67,7 @@ Summary:	Metacity - header files
 Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
-Requires:	libcm-devel
+Requires:	gtk+2-devel >= 2:2.12.8
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -183,9 +180,9 @@ Motyw Simple dla Metacity.
 
 %prep
 %setup -q
-#%%patch1
+#%%patch0
 %if %{with xinerama_fix}
-%patch2 -p1
+%patch1 -p1
 %endif
 
 sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
@@ -196,6 +193,7 @@ mv -f po/sr\@{Latn,latin}.po
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-schemas-install \
@@ -273,6 +271,7 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libmetacity-private.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libmetacity-private.so.0
 
 %files devel
 %defattr(644,root,root,755)
