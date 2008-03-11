@@ -13,16 +13,16 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.21.13
+Version:	2.22.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	d5c4b1179b32c4a7c439bd0f44a94758
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	8cb6d02cf66a1003532b4f5d2754d696
 Patch0:		%{name}-swap-resize-button.patch
 Patch1:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
-BuildRequires:	GConf2-devel >= 2.21.90
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
