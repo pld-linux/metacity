@@ -204,6 +204,7 @@ mv -f po/sr\@{Latn,latin}.po
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 install -d $RPM_BUILD_ROOT%{_datadir}/gnome/default-session
+ln -s %{_wmpropsdir}/metacity.desktop $RPM_BUILD_ROOT%{_datadir}/gnome/default-session
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
