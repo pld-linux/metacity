@@ -203,8 +203,6 @@ mv -f po/sr\@{Latn,latin}.po
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
-install -d $RPM_BUILD_ROOT%{_datadir}/gnome/autostart
-ln -s %{_wmpropsdir}/metacity.desktop $RPM_BUILD_ROOT%{_datadir}/gnome/autostart
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -238,7 +236,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_wmpropsdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
-%{_datadir}/gnome/autostart/*.desktop
 %{_datadir}/gnome-control-center/keybindings/*.xml
 %{_datadir}/xml/metacity
 %{_mandir}/man1/metacity*.1*
