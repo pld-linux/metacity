@@ -13,13 +13,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.23.377
+Version:	2.23.610
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	754d79c49febb34bceda58dfaee138b0
+# Source0-md5:	59bf58fc5c8f4b11014caf66483d6605
 Patch0:		%{name}-swap-resize-button.patch
 Patch1:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
 BuildRequires:	GConf2-devel >= 2.22.0
@@ -40,8 +40,6 @@ Provides:	gnome-wm
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_wmpropsdir	/usr/share/wm-properties
 
 %description
 Metacity is a simple window manager that integrates nicely with
@@ -203,7 +201,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	desktopfilesdir=%{_wmpropsdir} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
@@ -231,7 +228,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/metacity-window-demo
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
-%{_wmpropsdir}/metacity.desktop
+%{_desktopdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
 %{_datadir}/gnome-control-center/keybindings/*.xml
 %{_datadir}/xml/metacity
