@@ -6,10 +6,6 @@
 #   instead of linking with built one?)
 #
 
-%bcond_with	xinerama_fix	# build with better (imho) window placing in
-                            # while using xinerama, see
-                            # http://ubuntuforums.org/showthread.php?t=242502
-
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
@@ -20,8 +16,6 @@ License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.23/%{name}-%{version}.tar.bz2
 # Source0-md5:	59bf58fc5c8f4b11014caf66483d6605
-Patch0:		%{name}-swap-resize-button.patch
-Patch1:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -178,10 +172,6 @@ Motyw Simple dla Metacity.
 
 %prep
 %setup -q
-#%%patch0
-%if %{with xinerama_fix}
-%patch1 -p1
-%endif
 
 %build
 %{__intltoolize}
