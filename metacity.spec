@@ -32,6 +32,7 @@ Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
 # sr@Latn vs. sr@latin
+Conflicts:	filesystem < 3.0-20
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -221,6 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
 %{_datadir}/gnome-control-center/keybindings/*.xml
+%{_datadir}/gnome/wm-properties/metacity-wm.desktop
 %{_datadir}/xml/metacity
 %{_mandir}/man1/metacity*.1*
 
