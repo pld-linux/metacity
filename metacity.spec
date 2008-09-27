@@ -6,27 +6,21 @@
 #   instead of linking with built one?)
 #
 
-%bcond_with	xinerama_fix	# build with better (imho) window placing in
-                            # while using xinerama, see
-                            # http://ubuntuforums.org/showthread.php?t=242502
-
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.22.0
+Version:	2.24.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	8cb6d02cf66a1003532b4f5d2754d696
-Patch0:		%{name}-swap-resize-button.patch
-Patch1:		http://www.student.dtu.dk/~s021749/metacitydebs/2.16.3_i386/021-twinview-modification.patch
-BuildRequires:	GConf2-devel >= 2.22.0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	d4aa782d5f71b6c42514b239684a4aa3
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.12.8
+BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -38,10 +32,9 @@ Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Provides:	gnome-wm
 # sr@Latn vs. sr@latin
+Conflicts:	filesystem < 3.0-20
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_wmpropsdir	/usr/share/wm-properties
 
 %description
 Metacity is a simple window manager that integrates nicely with
@@ -67,7 +60,7 @@ Summary:	Metacity - header files
 Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.12.8
+Requires:	gtk+2-devel >= 2:2.14.0
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -180,13 +173,6 @@ Motyw Simple dla Metacity.
 
 %prep
 %setup -q
-#%%patch0
-%if %{with xinerama_fix}
-%patch1 -p1
-%endif
-
-sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
-mv -f po/sr\@{Latn,latin}.po
 
 %build
 %{__intltoolize}
@@ -206,7 +192,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	desktopfilesdir=%{_wmpropsdir} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
@@ -234,9 +219,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/metacity-window-demo
 %attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
-%{_wmpropsdir}/metacity.desktop
+%{_desktopdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
 %{_datadir}/gnome-control-center/keybindings/*.xml
+%{_datadir}/gnome/wm-properties/metacity-wm.desktop
 %{_datadir}/xml/metacity
 %{_mandir}/man1/metacity*.1*
 
