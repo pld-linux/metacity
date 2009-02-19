@@ -9,19 +9,19 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.24.0
-Release:	2
+Version:	2.25.144
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	d4aa782d5f71b6c42514b239684a4aa3
-BuildRequires:	GConf2-devel >= 2.24.0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.25/%{name}-%{version}.tar.bz2
+# Source0-md5:	b7f51a8144584f51434b8775216bc2c5
+BuildRequires:	GConf2-devel >= 2.25.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.14.0
-BuildRequires:	intltool >= 0.37.0
+BuildRequires:	gtk+2-devel >= 2:2.15.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -60,7 +60,7 @@ Summary:	Metacity - header files
 Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.14.0
+Requires:	gtk+2-devel >= 2:2.15.0
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -196,7 +196,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
-%find_lang %{name}
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,la}
+
+%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
