@@ -10,7 +10,7 @@ Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
 Version:	2.26.0
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -27,9 +27,12 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
 BuildRequires:	xorg-lib-libSM-devel
+# do we want to patch it?
+BuildRequires:	zenity
 Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
+Requires:	zenity
 Provides:	gnome-wm
 # sr@Latn vs. sr@latin
 Conflicts:	filesystem < 3.0-20
