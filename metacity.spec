@@ -9,13 +9,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.26.0
+Version:	2.27.0
 Release:	3
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	eafb624e79fbcdab6da59acc222430b1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.27/%{name}-%{version}.tar.bz2
+# Source0-md5:	52871631cc13b7fde1403aaee3db32d4
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -222,7 +222,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/metacity-message
 %attr(755,root,root) %{_bindir}/metacity-theme-viewer
 %attr(755,root,root) %{_bindir}/metacity-window-demo
-%attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
 %{_desktopdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
