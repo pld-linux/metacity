@@ -9,19 +9,22 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.26.0
-Release:	3
+Version:	2.28.0
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	eafb624e79fbcdab6da59acc222430b1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.28/%{name}-%{version}.tar.bz2
+# Source0-md5:	9d87e390cf9979978f2290aebc41f83b
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-doc-utils >= 0.9.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libcanberra-gtk-devel
+BuildRequires:	libgtop-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -222,7 +225,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/metacity-message
 %attr(755,root,root) %{_bindir}/metacity-theme-viewer
 %attr(755,root,root) %{_bindir}/metacity-window-demo
-%attr(755,root,root) %{_libdir}/metacity-dialog
 %{_datadir}/%{name}
 %{_desktopdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
