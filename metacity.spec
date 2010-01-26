@@ -9,13 +9,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.28.0
-Release:	2
+Version:	2.28.1
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	9d87e390cf9979978f2290aebc41f83b
+# Source0-md5:	cd444560753d63dec3ac5ee3bd061007
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -28,6 +28,7 @@ BuildRequires:	libgtop-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	sed >= 4.0
 BuildRequires:	startup-notification-devel >= 0.8
 BuildRequires:	xorg-lib-libSM-devel
 # do we want to patch it?
@@ -179,6 +180,9 @@ Motyw Simple dla Metacity.
 
 %prep
 %setup -q
+%{__sed} -i -e 's/en@shaw//' po/LINGUAS
+%{__sed} -i -e 's/^la$//' po/LINGUAS
+%{__rm} -f po/{en@shaw,la}.po
 
 %build
 %{__intltoolize}
@@ -201,8 +205,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
-
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,la}
 
 %find_lang %{name} --with-gnome --all-name
 
