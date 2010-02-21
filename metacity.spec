@@ -10,12 +10,14 @@ Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
 Version:	2.28.1
-Release:	2
+Release:	3
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.28/%{name}-%{version}.tar.bz2
 # Source0-md5:	cd444560753d63dec3ac5ee3bd061007
+# https://bugzilla.gnome.org/show_bug.cgi?id=588119
+Patch0:		%{name}-meta_session_shutdown.patch
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -180,6 +182,8 @@ Motyw Simple dla Metacity.
 
 %prep
 %setup -q
+%patch0 -p1
+
 %{__sed} -i -e 's/en@shaw//' po/LINGUAS
 %{__sed} -i -e 's/^la$//' po/LINGUAS
 %{__rm} -f po/{en@shaw,la}.po
