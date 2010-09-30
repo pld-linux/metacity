@@ -9,13 +9,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.30.1
+Version:	2.30.3
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	3d3c05c60b70b9d06b30872e756c31ba
+# Source0-md5:	553784f376d96b902e19ff437cd5b339
 # https://bugzilla.gnome.org/show_bug.cgi?id=588119
 Patch0:		%{name}-meta_session_shutdown.patch
 BuildRequires:	GConf2-devel >= 2.24.0
@@ -23,7 +23,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.9.0
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	libgtop-devel
