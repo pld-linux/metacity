@@ -10,7 +10,7 @@ Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
 Version:	2.30.3
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -209,6 +209,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libmetacity-private.la
+
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -275,7 +277,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog HACKING doc/dialogs.txt
 %attr(755,root,root) %{_libdir}/libmetacity-private.so
-%{_libdir}/libmetacity-private.la
 %{_includedir}/metacity-1
 %{_pkgconfigdir}/libmetacity-private.pc
 
