@@ -9,15 +9,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.30.3
-Release:	2
+Version:	2.34.0
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	553784f376d96b902e19ff437cd5b339
-# https://bugzilla.gnome.org/show_bug.cgi?id=588119
-Patch0:		%{name}-meta_session_shutdown.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.34/%{name}-%{version}.tar.bz2
+# Source0-md5:	8291ab8ba4034f898895f38888377d74
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -30,7 +28,6 @@ BuildRequires:	libgtop-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	sed >= 4.0
 BuildRequires:	startup-notification-devel >= 0.8
 BuildRequires:	xorg-lib-libSM-devel
 # do we want to patch it?
@@ -69,7 +66,7 @@ Summary:	Metacity - header files
 Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.16.0
+Requires:	gtk+2-devel >= 2:2.20.0
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -182,10 +179,6 @@ Motyw Simple dla Metacity.
 
 %prep
 %setup -q
-%patch0 -p1
-
-%{__sed} -i -e 's/en@shaw//' po/LINGUAS
-%{__rm} -f po/en@shaw.po
 
 %build
 %{__intltoolize}
