@@ -5,12 +5,15 @@
 # - metacity requires itself (links with installed libmetacity-private
 #   instead of linking with built one?)
 #
-
+#
+# Conditional build:
+%bcond_with	gnome2		# build with support for GNOME2 wm-properties
+#
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
 Version:	2.34.1
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -204,6 +207,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
+%{!?with_gnome2:%{__rm} %{_datadir}/gnome/wm-properties/metacity-wm.desktop}
+
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libmetacity-private.la
 
 %find_lang %{name} --with-gnome --all-name
@@ -231,7 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/metacity.desktop
 %{_sysconfdir}/gconf/schemas/metacity.schemas
 %{_datadir}/gnome-control-center/keybindings/*.xml
-%{_datadir}/gnome/wm-properties/metacity-wm.desktop
+%{?with_gnome2:%{_datadir}/gnome/wm-properties/metacity-wm.desktop}
 %{_datadir}/xml/metacity
 %{_mandir}/man1/metacity*.1*
 
