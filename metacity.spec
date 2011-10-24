@@ -13,7 +13,7 @@ Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
 Version:	2.34.1
-Release:	3
+Release:	4
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -42,6 +42,7 @@ Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Requires:	zenity
 Provides:	gnome-wm
+Provides:	gdm-wm = 3.2.1-1
 # sr@Latn vs. sr@latin
 Conflicts:	filesystem < 3.0-20
 Conflicts:	glibc-misc < 6:2.7
