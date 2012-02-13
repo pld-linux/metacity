@@ -12,13 +12,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.34.1
-Release:	4
+Version:	2.34.2
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.34/%{name}-%{version}.tar.bz2
-# Source0-md5:	472a49dbabc7daae80db0a0064ede98a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.34/%{name}-%{version}.tar.xz
+# Source0-md5:	c8d661a9f232d826c5f21bc0bff0a3e6
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.11.1
@@ -34,9 +34,11 @@ BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libSM-devel
 # do we want to patch it?
 BuildRequires:	zenity
+BuildRequires:	xz >= 1:4.999.7
 Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
