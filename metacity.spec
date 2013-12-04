@@ -12,14 +12,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.34.2
+Version:	2.34.13
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.34/%{name}-%{version}.tar.xz
-# Source0-md5:	c8d661a9f232d826c5f21bc0bff0a3e6
-BuildRequires:	GConf2-devel >= 2.24.0
+# Source0-md5:	6d89b71672d4fa49fc87f83d610d0ef6
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.11.1
 BuildRequires:	gettext-devel
@@ -39,7 +38,7 @@ BuildRequires:	xorg-lib-libSM-devel
 # do we want to patch it?
 BuildRequires:	zenity
 BuildRequires:	xz >= 1:4.999.7
-Requires(post,preun):	GConf2
+Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Requires:	zenity
@@ -220,10 +219,10 @@ install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install metacity.schemas
+%glib_compile_schemas
 
-%preun
-%gconf_schema_uninstall metacity.schemas
+%postun
+%glib_compile_schemas
 
 %post	libs -p /sbin/ldconfig
 %postun	libs -p /sbin/ldconfig
@@ -235,9 +234,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/metacity-message
 %attr(755,root,root) %{_bindir}/metacity-theme-viewer
 %attr(755,root,root) %{_bindir}/metacity-window-demo
+%{_datadir}/GConf/gsettings/metacity-schemas.convert
+%{_datadir}/glib-2.0/schemas/org.gnome.metacity.gschema.xml
 %{_datadir}/%{name}
 %{_desktopdir}/metacity.desktop
-%{_sysconfdir}/gconf/schemas/metacity.schemas
 %{_datadir}/gnome-control-center/keybindings/*.xml
 %{?with_gnome2:%{_datadir}/gnome/wm-properties/metacity-wm.desktop}
 %{_datadir}/xml/metacity
