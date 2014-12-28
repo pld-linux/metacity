@@ -21,7 +21,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.34/%{name}-%{version}
 # Source0-md5:	6d89b71672d4fa49fc87f83d610d0ef6
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.11.1
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 2.6.0
 BuildRequires:	gnome-doc-utils >= 0.9.0
 BuildRequires:	gtk+2-devel >= 2:2.20.0
