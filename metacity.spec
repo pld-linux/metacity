@@ -5,41 +5,47 @@
 # - metacity requires itself (links with installed libmetacity-private
 #   instead of linking with built one?)
 #
-#
 # Conditional build:
 %bcond_with	gnome2		# build with support for GNOME2 wm-properties
 #
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	2.34.13
-Release:	2
+Version:	3.16.1
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/2.34/%{name}-%{version}.tar.xz
-# Source0-md5:	6d89b71672d4fa49fc87f83d610d0ef6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.16/%{name}-%{version}.tar.xz
+# Source0-md5:	5819a75b7a563df2337e1eab8f0e8827
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.11.1
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 2.6.0
+BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gnome-doc-utils >= 0.9.0
-BuildRequires:	gtk+2-devel >= 2:2.20.0
+BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
+BuildRequires:	gtk+3-devel >= 3.15.2
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libcanberra-gtk-devel
-BuildRequires:	libgtop-devel
+BuildRequires:	libcanberra-gtk3-devel
+BuildRequires:	libgtop-devel >= 2.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.2.0
+BuildRequires:	pango-devel >= 1:1.2.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libSM-devel
-# do we want to patch it?
-BuildRequires:	zenity
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXcomposite-devel >= 0.3
+BuildRequires:	xorg-lib-libXcursor-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXinerama-devel
+BuildRequires:	xorg-lib-libXrandr-devel
+BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xz >= 1:4.999.7
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
+Requires:	gsettings-desktop-schemas >= 3.3.0
 Requires:	metacity-theme-base = %{epoch}:%{version}-%{release}
 Requires:	zenity
 Provides:	gnome-wm
@@ -60,6 +66,9 @@ Metacity jest prostym zarządcą okien ładnie integrującym się z GNOME2.
 Summary:	Metacity - libraries
 Summary(pl.UTF-8):	Metacity - biblioteki
 Group:		X11/Libraries
+Requires:	glib2 >= 1:2.36.0
+Requires:	gtk+3 >= 3.15.2
+Requires:	pango >= 1:1.2.0
 Conflicts:	metacity <= 2.6.3-4
 
 %description libs
@@ -73,7 +82,7 @@ Summary:	Metacity - header files
 Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.20.0
+Requires:	gtk+3-devel >= 3.15.2
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -105,6 +114,19 @@ AgingGorilla theme for Metacity.
 
 %description themes-AgingGorilla -l pl.UTF-8
 Motyw AgingGorilla dla Metacity.
+
+%package themes-Adwaita
+Summary:	Adwaita theme for Metacity
+Summary(pl.UTF-8):	Motyw Adwaita dla Metacity
+Group:		Themes/GTK+
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
+
+%description themes-Adwaita
+Adwaita theme for Metacity.
+
+%description themes-Adwaita -l pl.UTF-8
+Motyw Adwaita dla Metacity.
 
 %package themes-Atlanta
 Summary:	Atlanta theme for Metacity
@@ -158,6 +180,19 @@ Esco theme for Metacity.
 %description themes-Esco -l pl.UTF-8
 Motyw Esco dla Metacity.
 
+%package themes-HighContrast
+Summary:	HighContrast theme for Metacity
+Summary(pl.UTF-8):	Motyw HighContrast dla Metacity
+Group:		Themes/GTK+
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	metacity-theme-base = %{epoch}:%{version}-%{release}
+
+%description themes-HighContrast
+HighContrast theme for Metacity.
+
+%description themes-HighContrast -l pl.UTF-8
+Motyw HighContrast dla Metacity.
+
 %package themes-Metabox
 Summary:	Metabox theme for Metacity
 Summary(pl.UTF-8):	Motyw Metabox dla Metacity
@@ -195,8 +230,9 @@ Motyw Simple dla Metacity.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-schemas-install \
-	--enable-compositor
+	ZENITY=/usr/bin/zenity \
+	--enable-compositor \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -213,6 +249,7 @@ install doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libmetacity-private.la
 
+# "metacity" gettext domain, "creating-metacity-themes" help
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -236,12 +273,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/metacity-window-demo
 %{_datadir}/GConf/gsettings/metacity-schemas.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.gschema.xml
-%{_datadir}/%{name}
-%{_desktopdir}/metacity.desktop
-%{_datadir}/gnome-control-center/keybindings/*.xml
+%{_datadir}/gnome-control-center/keybindings/50-metacity-*.xml
 %{?with_gnome2:%{_datadir}/gnome/wm-properties/metacity-wm.desktop}
 %{_datadir}/xml/metacity
+%{_datadir}/%{name}
+%{_desktopdir}/metacity.desktop
 %{_mandir}/man1/metacity*.1*
+
+%files themes-Adwaita
+%defattr(644,root,root,755)
+%{_datadir}/themes/Adwaita
 
 %files themes-AgingGorilla
 %defattr(644,root,root,755)
@@ -263,6 +304,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/themes/Esco
 
+%files themes-HighContrast
+%defattr(644,root,root,755)
+%{_datadir}/themes/HighContrast
+
 %files themes-Metabox
 %defattr(644,root,root,755)
 %{_datadir}/themes/Metabox
@@ -274,13 +319,13 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libmetacity-private.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmetacity-private.so.0
+%attr(755,root,root) %ghost %{_libdir}/libmetacity-private.so.3
 
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog HACKING doc/dialogs.txt
 %attr(755,root,root) %{_libdir}/libmetacity-private.so
-%{_includedir}/metacity-1
+%{_includedir}/metacity
 %{_pkgconfigdir}/libmetacity-private.pc
 
 %files static
