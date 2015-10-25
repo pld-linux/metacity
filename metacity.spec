@@ -11,24 +11,23 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.16.1
+Version:	3.18.1
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	5819a75b7a563df2337e1eab8f0e8827
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	f81a6c687dde4ff567a35c7daf2e23f9
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1.11.1
+BuildRequires:	automake >= 1.13
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.36.0
-BuildRequires:	gnome-doc-utils >= 0.9.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
 BuildRequires:	gtk+3-devel >= 3.15.2
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libgtop-devel >= 2.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pango-devel >= 1:1.2.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -43,6 +42,7 @@ BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xz >= 1:4.999.7
+BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	gsettings-desktop-schemas >= 3.3.0
