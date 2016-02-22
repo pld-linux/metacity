@@ -11,13 +11,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.18.1
+Version:	3.18.2
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	f81a6c687dde4ff567a35c7daf2e23f9
+# Source0-md5:	18a9ced5d7b78585f6ef7141c2721f37
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.13
 BuildRequires:	gettext-tools
