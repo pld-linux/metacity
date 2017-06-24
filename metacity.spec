@@ -9,7 +9,7 @@ Group:		X11/Window Managers
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.24/%{name}-%{version}.tar.xz
 # Source0-md5:	e6db714b3a0f319d68d4386cbe783b74
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1.13
+BuildRequires:	automake >= 1:1.13
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
@@ -34,9 +34,10 @@ BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xz >= 1:4.999.7
 BuildRequires:	yelp-tools
-Requires(post,postun):	glib2 >= 1:2.36.0
+Requires(post,postun):	glib2 >= 1:2.44.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	gsettings-desktop-schemas >= 3.3.0
+Requires:	xorg-lib-libXcomposite >= 0.3
 Requires:	zenity
 Provides:	gdm-wm = 3.2.1-1
 Provides:	gnome-wm
@@ -120,8 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	DESTDIR=$RPM_BUILD_ROOT
 
 cp -p doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
