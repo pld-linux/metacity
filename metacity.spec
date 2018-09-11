@@ -2,7 +2,7 @@ Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
 Version:	3.24.1
-Release:	2
+Release:	3
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
@@ -152,6 +152,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.keybindings.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.theme.gschema.xml
+# package keybindings dir, not to pull optional gnome-control-center dependency
+%dir %{_datadir}/gnome-control-center/keybindings
 %{_datadir}/gnome-control-center/keybindings/50-metacity-*.xml
 %{_datadir}/xml/metacity
 %{_datadir}/%{name}
