@@ -1,19 +1,28 @@
+#
+# Conditional build:
+%bcond_without	vulkan	# Vulkan support
+
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.24.1
-Release:	4
+Version:	3.34.1
+Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	e6db714b3a0f319d68d4386cbe783b74
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	c0c10204e4d6d024cb413042c1de316b
+URL:		https://wiki.gnome.org/Projects/Metacity
+%if %{with vulkan}
+BuildRequires:	Vulkan-Headers
+BuildRequires:	Vulkan-Loader-devel
+%endif
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1:1.13
+BuildRequires:	automake >= 1:1.14
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
-BuildRequires:	gtk+3-devel >= 3.20.0
+BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libgtop-devel >= 2.0
 BuildRequires:	libtool >= 2:2
@@ -33,7 +42,6 @@ BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xz >= 1:4.999.7
-BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	gsettings-desktop-schemas >= 3.3.0
@@ -66,7 +74,7 @@ Summary:	Metacity - libraries
 Summary(pl.UTF-8):	Metacity - biblioteki
 Group:		X11/Libraries
 Requires:	glib2 >= 1:2.44.0
-Requires:	gtk+3 >= 3.20.0
+Requires:	gtk+3 >= 3.22.0
 Requires:	pango >= 1:1.2.0
 Conflicts:	metacity <= 2.6.3-4
 
@@ -82,7 +90,7 @@ Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.44.0
-Requires:	gtk+3-devel >= 3.20.0
+Requires:	gtk+3-devel >= 3.22.0
 
 %description devel
 This package contains header files for Metacity window manager.
@@ -113,7 +121,9 @@ Statyczna wersja biblioteki Metacity.
 %{__automake}
 %configure \
 	ZENITY=/usr/bin/zenity \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{!?with_vulkan:--disable-vulkan}
+
 %{__make}
 
 %install
