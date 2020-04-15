@@ -5,13 +5,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.34.1
+Version:	3.36.1
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.34/%{name}-%{version}.tar.xz
-# Source0-md5:	c0c10204e4d6d024cb413042c1de316b
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.36/%{name}-%{version}.tar.xz
+# Source0-md5:	d1171705829bbebd42ac08ec49a9a90a
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
@@ -44,6 +44,7 @@ BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
+Requires:	filesystem >= 3.0-20
 Requires:	gsettings-desktop-schemas >= 3.3.0
 Requires:	xorg-lib-libXcomposite >= 0.3
 Requires:	zenity
@@ -58,9 +59,6 @@ Obsoletes:	metacity-themes-Esco
 Obsoletes:	metacity-themes-HighContrast
 Obsoletes:	metacity-themes-Metabox
 Obsoletes:	metacity-themes-Simple
-# sr@Latn vs. sr@latin
-Conflicts:	filesystem < 3.0-20
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
