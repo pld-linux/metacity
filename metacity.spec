@@ -1,17 +1,18 @@
 #
 # Conditional build:
-%bcond_without	vulkan	# Vulkan support
+%bcond_without	vulkan		# Vulkan support
+%bcond_without	static_libs	# static library
 
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.36.1
+Version:	3.38.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	d1171705829bbebd42ac08ec49a9a90a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	7c32510bee1abcbc827cf4b90fc6af36
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
@@ -19,7 +20,7 @@ BuildRequires:	Vulkan-Loader-devel
 %endif
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.14
-BuildRequires:	gettext-tools >= 0.19.4
+BuildRequires:	gettext-tools >= 0.19.6
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
 BuildRequires:	gtk+3-devel >= 3.22.0
@@ -120,18 +121,16 @@ Statyczna wersja biblioteki Metacity.
 %configure \
 	ZENITY=/usr/bin/zenity \
 	--disable-silent-rules \
+	%{?with_static_libs:--enable-static} \
 	%{!?with_vulkan:--disable-vulkan}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-cp -p doc/metacity-theme.dtd $RPM_BUILD_ROOT%{_datadir}/xml/metacity
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libmetacity.la
 
@@ -152,11 +151,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README rationales.txt doc/theme-format.txt
+%doc AUTHORS NEWS README rationales.txt
 %attr(755,root,root) %{_bindir}/metacity
 %attr(755,root,root) %{_bindir}/metacity-message
 %attr(755,root,root) %{_bindir}/metacity-theme-viewer
-%attr(755,root,root) %{_bindir}/metacity-window-demo
+%{_datadir}/glib-2.0/schemas/org.gnome.metacity.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.keybindings.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.metacity.theme.gschema.xml
@@ -164,15 +163,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gnome-control-center
 %dir %{_datadir}/gnome-control-center/keybindings
 %{_datadir}/gnome-control-center/keybindings/50-metacity-*.xml
-%{_datadir}/xml/metacity
-%{_datadir}/%{name}
 %{_desktopdir}/metacity.desktop
 %{_mandir}/man1/metacity*.1*
 
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libmetacity.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmetacity.so.1
+%attr(755,root,root) %ghost %{_libdir}/libmetacity.so.3
 
 %files devel
 %defattr(644,root,root,755)
@@ -181,6 +178,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/metacity
 %{_pkgconfigdir}/libmetacity.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libmetacity.a
+%endif
