@@ -6,13 +6,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.38.0
+Version:	3.40.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/metacity/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	7c32510bee1abcbc827cf4b90fc6af36
+Source0:	https://download.gnome.org/sources/metacity/3.40/%{name}-%{version}.tar.xz
+# Source0-md5:	e637f23f1553a1016f76cb17cbc148ca
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
@@ -21,7 +21,7 @@ BuildRequires:	Vulkan-Loader-devel
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.14
 BuildRequires:	gettext-tools >= 0.19.6
-BuildRequires:	glib2-devel >= 1:2.44.0
+BuildRequires:	glib2-devel >= 1:2.67.3
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	libcanberra-gtk3-devel
@@ -43,7 +43,7 @@ BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xz >= 1:4.999.7
-Requires(post,postun):	glib2 >= 1:2.44.0
+Requires(post,postun):	glib2 >= 1:2.67.3
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	filesystem >= 3.0-20
 Requires:	gsettings-desktop-schemas >= 3.3.0
@@ -51,15 +51,15 @@ Requires:	xorg-lib-libXcomposite >= 0.3
 Requires:	zenity
 Provides:	gdm-wm = 3.2.1-1
 Provides:	gnome-wm
-Obsoletes:	metacity-themes-Adwaita
-Obsoletes:	metacity-themes-AgingGorilla
-Obsoletes:	metacity-themes-Atlanta
-Obsoletes:	metacity-themes-Bright
-Obsoletes:	metacity-themes-Crux
-Obsoletes:	metacity-themes-Esco
-Obsoletes:	metacity-themes-HighContrast
-Obsoletes:	metacity-themes-Metabox
-Obsoletes:	metacity-themes-Simple
+Obsoletes:	metacity-themes-Adwaita < 2:3.24
+Obsoletes:	metacity-themes-AgingGorilla < 2:3.24
+Obsoletes:	metacity-themes-Atlanta < 2:3.24
+Obsoletes:	metacity-themes-Bright < 2:3.24
+Obsoletes:	metacity-themes-Crux < 2:3.24
+Obsoletes:	metacity-themes-Esco < 2:3.24
+Obsoletes:	metacity-themes-HighContrast < 2:3.24
+Obsoletes:	metacity-themes-Metabox < 2:3.24
+Obsoletes:	metacity-themes-Simple < 2:3.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -72,7 +72,7 @@ Metacity jest prostym zarządcą okien ładnie integrującym się z GNOME.
 Summary:	Metacity - libraries
 Summary(pl.UTF-8):	Metacity - biblioteki
 Group:		X11/Libraries
-Requires:	glib2 >= 1:2.44.0
+Requires:	glib2 >= 1:2.67.3
 Requires:	gtk+3 >= 3.22.0
 Requires:	pango >= 1:1.2.0
 Conflicts:	metacity <= 2.6.3-4
@@ -88,7 +88,7 @@ Summary:	Metacity - header files
 Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
-Requires:	glib2-devel >= 1:2.44.0
+Requires:	glib2-devel >= 1:2.67.3
 Requires:	gtk+3-devel >= 3.22.0
 
 %description devel
