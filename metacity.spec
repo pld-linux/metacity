@@ -6,13 +6,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.40.0
+Version:	3.42.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	https://download.gnome.org/sources/metacity/3.40/%{name}-%{version}.tar.xz
-# Source0-md5:	e637f23f1553a1016f76cb17cbc148ca
+Source0:	https://download.gnome.org/sources/metacity/3.42/%{name}-%{version}.tar.xz
+# Source0-md5:	ab5c83a8540a63095767859a7f2b2273
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
@@ -23,7 +23,7 @@ BuildRequires:	automake >= 1:1.14
 BuildRequires:	gettext-tools >= 0.19.6
 BuildRequires:	glib2-devel >= 1:2.67.3
 BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
-BuildRequires:	gtk+3-devel >= 3.22.0
+BuildRequires:	gtk+3-devel >= 3.24.6
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libgtop-devel >= 2.0
 BuildRequires:	libtool >= 2:2
@@ -40,8 +40,10 @@ BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXinerama-devel
+BuildRequires:	xorg-lib-libXpresent-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
+BuildRequires:	xorg-lib-libXres-devel
 BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	glib2 >= 1:2.67.3
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
@@ -73,7 +75,7 @@ Summary:	Metacity - libraries
 Summary(pl.UTF-8):	Metacity - biblioteki
 Group:		X11/Libraries
 Requires:	glib2 >= 1:2.67.3
-Requires:	gtk+3 >= 3.22.0
+Requires:	gtk+3 >= 3.24.6
 Requires:	pango >= 1:1.2.0
 Conflicts:	metacity <= 2.6.3-4
 
@@ -89,7 +91,7 @@ Summary(pl.UTF-8):	Metacity - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.67.3
-Requires:	gtk+3-devel >= 3.22.0
+Requires:	gtk+3-devel >= 3.24.6
 
 %description devel
 This package contains header files for Metacity window manager.
