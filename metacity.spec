@@ -6,13 +6,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.42.0
+Version:	3.44.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	https://download.gnome.org/sources/metacity/3.42/%{name}-%{version}.tar.xz
-# Source0-md5:	ab5c83a8540a63095767859a7f2b2273
+Source0:	https://download.gnome.org/sources/metacity/3.44/%{name}-%{version}.tar.xz
+# Source0-md5:	5a1b5b58a7430e6edb5a3120c4869136
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
