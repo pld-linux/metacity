@@ -6,13 +6,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.44.0
+Version:	3.46.1
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	https://download.gnome.org/sources/metacity/3.44/%{name}-%{version}.tar.xz
-# Source0-md5:	5a1b5b58a7430e6edb5a3120c4869136
+Source0:	https://download.gnome.org/sources/metacity/3.46/%{name}-%{version}.tar.xz
+# Source0-md5:	bf9146d9fde0157c59041c8c17f57b23
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	startup-notification-devel >= 0.8
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXcomposite-devel >= 0.3
@@ -43,13 +44,14 @@ BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXpresent-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
-BuildRequires:	xorg-lib-libXres-devel
+BuildRequires:	xorg-lib-libXres-devel >= 1.2
 BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	glib2 >= 1:2.67.3
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	filesystem >= 3.0-20
 Requires:	gsettings-desktop-schemas >= 3.3.0
 Requires:	xorg-lib-libXcomposite >= 0.3
+Requires:	xorg-lib-libXres >= 1.2
 Requires:	zenity
 Provides:	gdm-wm = 3.2.1-1
 Provides:	gnome-wm
