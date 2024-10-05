@@ -6,13 +6,13 @@
 Summary:	Metacity window manager
 Summary(pl.UTF-8):	Zarządca okien Metacity
 Name:		metacity
-Version:	3.52.0
+Version:	3.54.0
 Release:	1
 Epoch:		2
 License:	GPL v2+
 Group:		X11/Window Managers
-Source0:	https://download.gnome.org/sources/metacity/3.52/%{name}-%{version}.tar.xz
-# Source0-md5:	284d9719128284b34b41da132931f25e
+Source0:	https://download.gnome.org/sources/metacity/3.54/%{name}-%{version}.tar.xz
+# Source0-md5:	de0beb1a90fbb931c76e9b235cf53d4d
 URL:		https://wiki.gnome.org/Projects/Metacity
 %if %{with vulkan}
 BuildRequires:	Vulkan-Headers
@@ -22,7 +22,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.14
 BuildRequires:	gettext-tools >= 0.19.6
 BuildRequires:	glib2-devel >= 1:2.67.3
-BuildRequires:	gsettings-desktop-schemas-devel >= 3.3.0
+BuildRequires:	gsettings-desktop-schemas-devel >= 42
 BuildRequires:	gtk+3-devel >= 3.24.6
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libgtop-devel >= 2.0
@@ -49,7 +49,7 @@ BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	glib2 >= 1:2.67.3
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	filesystem >= 3.0-20
-Requires:	gsettings-desktop-schemas >= 3.3.0
+Requires:	gsettings-desktop-schemas >= 42
 Requires:	xorg-lib-libXcomposite >= 0.3
 Requires:	xorg-lib-libXres >= 1.2
 Requires:	zenity
